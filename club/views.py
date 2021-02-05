@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Meeting, MeetingMinute, Resource, Event 
+from django.shortcuts import render, get_object_or_404
+from .models import Meeting, MeetingMinute, Resource, Event
+from django.urls import reverse_lazy 
 
 # Create your views here.
 def index (request):
@@ -19,4 +20,9 @@ def resource(request):
 
 def event(request):
     event_list=Event.objects.all()
-    return render(request, 'club/event.html', {'event_list': event_list})    
+    return render(request, 'club/event.html', {'event_list': event_list})  
+
+# Assignment 6 Here
+def meetingdetail(request, id):
+    meeting=get_object_or_404(Meeting, pk=id)
+    return render(request, 'club/meetingdetail.html', {'meeting': meeting})  
