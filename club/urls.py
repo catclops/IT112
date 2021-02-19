@@ -9,4 +9,8 @@ urlpatterns = [
     path('event/', views.event, name='event'),
     #Assignment 6 Below
     path('meetingdetail/<int:id>', views.meetingdetail, name='meetingdetail'),
+    path('resourcedetail/<int:id>', views.resourcedetail, name='resourcedetail'),
+    #Assignment 8 forms below
+    path('newmeeting/', views.newmeeting, name='newmeeting'),
+    path('newresource/', views.newresource, name='newresource'),
 ]
